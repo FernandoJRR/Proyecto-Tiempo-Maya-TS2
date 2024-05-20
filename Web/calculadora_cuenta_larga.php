@@ -14,13 +14,14 @@ function imagenSimbolo($base64_imagen, $width = 50)
     return '<img width="'.$width.'" style="filter:brightness(0) invert(1);" src="data:image/png;base64,' . $base64_imagen . '" />';
 }
 
+$kin_nahual = include 'backend/buscar/conseguir_nahual_nombre_dia.php';
 $nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
 $array_cuenta_larga = explode('.', $cuenta_larga);
 $senor_de_la_noche = include 'backend/buscar/conseguir_senor_de_la_noche.php';
-$cholquij = $nahual." ". strval($energia);
+$cholquij = $nahual." / ".$kin_nahual." ".strval($energia);
 
 $base64_simbolo_baktun = base64_encode(file_get_contents(__DIR__.'/imgs/baktun.png'));
 $base64_simbolo_katun = base64_encode(file_get_contents(__DIR__.'/imgs/katun.png'));
@@ -55,15 +56,14 @@ $base64_estela = base64_encode(file_get_contents(__DIR__.'/imgs/estela_calendari
 
     <?php include "NavBar.php" ?>
     <div>
-        <section id="inicio">
+        <section id="inicio" style="height:75em">
             <div id="inicioContainer" class="inicio-container">
 
                 <div id='formulario'>
                     <h1>Calculadora</h1>
                     <form action="#" method="GET">
                         <div class="mb-1">
-                            <label for="fecha" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>" >
+                             <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>" >
                         </div>
                         <button type="submit" class="btn btn-get-started"><i class="far fa-clock"></i> Calcular</button>
                     </form>
@@ -79,6 +79,14 @@ $base64_estela = base64_encode(file_get_contents(__DIR__.'/imgs/estela_calendari
                             </thead>
                             <tbody>
                                 <tr>
+                                <tr>
+                                    <th scope="row">Calendario Haab</th>
+                                    <td ><?php echo isset($haab) ? $haab : ''; ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Calendario Cholquij</th>
+                                    <td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
+                                </tr>
                                     <th scope="row">Cuenta Larga</th>
                                     <td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
                                 </tr>
@@ -131,7 +139,6 @@ $base64_estela = base64_encode(file_get_contents(__DIR__.'/imgs/estela_calendari
     </div>
     </section>
     </div>
-
 
     <?php include "blocks/bloquesJs1.html" ?>
 
