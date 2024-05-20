@@ -105,7 +105,8 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
             </li>
             
             <li class="nav-item"><a class="nav-link" href="calculadora.php">Calculadora</a></li>
-           
+            <li class="nav-item"><a class="nav-link" href="calculadora_cuenta_larga.php">Calculadora Cuenta Larga</a></li>
+
           </ul>
         </div>
       </div>
