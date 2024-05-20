@@ -100,12 +100,36 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempo_maya.periodo order by ord
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
+            <li>
+              <a class="nav-link" href="models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Rueda Calendarica
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <a class="nav-link" href="models/paginaModelo.php?pagina=Rueda Calendarica" style="font-size: 13px;">Informacion </a>
+                </li>
+                <li>
+                  <a class="nav-link" href="calculadora_rueda_calendarica.php" style="font-size: 13px;">Calculadora </a>
+                </li>
+              </ul>
             </li>
-            
             <li class="nav-item"><a class="nav-link" href="calculadora_cuenta_larga.php">Calculadora</a></li>
-            <li class="nav-item"><a class="nav-link" href="calculadora_rueda_calendarica.php">Calculadora Rueda Calendarica</a></li>
+            <li>
+              <a class="nav-link" href="models/paginaModelo.php?pagina=Calendario">Calendario &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Calendario
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                  <a class="nav-link" href="models/paginaModelo.php?pagina=Calendario" style="font-size: 13px;">Informacion </a>
+                </li>
+                <li>
+                  <a class="nav-link" href="calculadora_calendario.php" style="font-size: 13px;">Calculadora </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="acerca_de.php">Acerca De</a></li>                      
           </ul>
         </div>
       </div>
